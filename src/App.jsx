@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Pokedex from "./components/Pokedex";
 import SearchData from "./components/SearchData";
 import AllData from "./components/AllData";
+import Footer from "./components/Footer";
 
 function App() {
   const [data, setData] = useState([]);
@@ -58,6 +59,7 @@ function App() {
         </Pokedex>
       )}
       {searchInfo && searchInput && <SearchData data={searchInfo} imageUrl={imageUrl} />}
+      {!searchInput && <Footer />}
     </>
   );
 }
