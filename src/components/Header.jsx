@@ -3,7 +3,7 @@ import logo from "../assets/pokedex.png";
 
 const Header = ({ onChange, onClick, handleKeyDown }) => {
   return (
-    <nav className="flex items-center justify-between bg-red-600 p-2">
+    <nav className="flex flex-col gap-2 md:flex-row items-center justify-between bg-red-600 p-2 ">
       <img className="w-40 ml-4" src={logo} alt="logo" />
       <div className="mr-4">
         <input

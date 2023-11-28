@@ -2,7 +2,7 @@
 const SearchData = ({ data, imageUrl }) => {
   console.log(data);
   return (
-    <div className="h-screen flex justify-center items-center gap-20 py-20">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-20 py-20">
       <img
         className="h-[400px] p-4 rounded-2x"
         src={`${imageUrl}${data.name}.jpg`}
