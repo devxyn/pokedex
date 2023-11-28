@@ -42,15 +42,11 @@ function App() {
     }
   };
 
-  const handleKeyDown = () => {
-    search();
-  };
-
   return (
     <>
       <Header
         onChange={(e) => setSearchInput(e.target.value)}
-        handleKeyDown={handleKeyDown}
+        handleKeyDown={() => search()}
         onClick={search}
       />
       {!searchInput && (
