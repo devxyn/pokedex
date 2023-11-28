@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
-const SearchData = ({ data, url }) => {
+const SearchData = ({ data, imageUrl }) => {
   return (
     <div>
+      <img src={`${imageUrl}${data.name}.jpg`} alt={data.name} />
       <div>
-        <img src={`${url}${data.id}.png`} alt={data.name} />
-        <div>
-          <h2>{data.name}</h2>
-        </div>
+        <h2>{data.name}</h2>
       </div>
     </div>
   );

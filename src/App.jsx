@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import Nav from "./components/Nav";
+import Header from "./components/Header";
 import Pokedex from "./components/Pokedex";
 import SearchData from "./components/SearchData";
 import AllData from "./components/AllData";
@@ -12,7 +12,7 @@ function App() {
   const [searchInfo, setSearchInfo] = useState(null);
 
   const url = "https://pokeapi.co/api/v2/pokemon";
-  const imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+  const imageUrl = "https://img.pokemondb.net/artwork/";
 
   useEffect(() => {
     fetchData();
@@ -28,10 +28,6 @@ function App() {
     }
   };
 
-  const handleChange = (e) => {
-    setSearchInput(e.target.value);
-  };
-
   const handleLimit = () => setLimit((prev) => prev + 20);
 
   const search = async () => {
@@ -45,15 +41,23 @@ function App() {
     }
   };
 
+  const handleKeyDown = () => {
+    search();
+  };
+
   return (
     <>
-      <Nav onChange={handleChange} onClick={search} />
+      <Header
+        onChange={(e) => setSearchInput(e.target.value)}
+        handleKeyDown={handleKeyDown}
+        onClick={search}
+      />
       {!searchInput && (
         <Pokedex handleLimit={handleLimit}>
-          <AllData data={data} url={imageUrl} />
+          <AllData data={data} imageUrl={imageUrl} />
         </Pokedex>
       )}
-      {searchInfo && searchInput && <SearchData data={searchInfo} url={imageUrl} />}
+      {searchInfo && searchInput && <SearchData data={searchInfo} imageUrl={imageUrl} />}
     </>
   );
 }
