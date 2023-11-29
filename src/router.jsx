@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Pokedex from "./components/Pokedex";
 import Pokemon from "./components/Pokemon";
 import fetchPokemon from "./loader/fetchPokemon";
+import NotFound from "./components/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +18,13 @@ const router = createBrowserRouter([
         path: "pokemon/:name",
         element: <Pokemon />,
         loader: fetchPokemon,
+        errorElement: <NotFound />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
